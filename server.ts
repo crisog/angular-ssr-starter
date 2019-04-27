@@ -36,7 +36,7 @@ global['document'] = win.document;
 global['CSS'] = null;
 // global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
 global['Prism'] = null;
-
+// this is just added code
 const app = express();
 
 // Config renderer
