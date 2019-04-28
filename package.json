@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
-    "serve:ssr": "node dist/server.js",
+    "serve:ssr": "pm2 start dist/server.js",
     "build:client-and-server-bundles": "ng build --prod --base-href=//angular && ng run demo:server:production",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "start-ssr": "npm run build:ssr && npm run serve:ssr"
