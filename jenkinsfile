@@ -1,22 +1,26 @@
-// This shows a simple example of how to archive the build output artifacts.
 pipeline {
-    agent any
+  agent any
+ 
+  tools {nodejs "regular-js"}
+ 
+  stages {
+    stage('Checkout SCM'){
+        steps{
+                git branch: 'SP7', url: 'https://github.com/crisog/angular-ssr-starter.git'
+        }
+       }
 
-    stages {
-        stage('Build') {
+        stage('Install node modules'){
             steps {
-                echo 'Building..'
+                sh "npm install"
             }
-        }
-        stage('Test') {
+                
+            }
+        stage('Build'){
             steps {
-                echo 'Testing..'
+                sh "npm run build:ssr"
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                
             }
-        }
-    }
+  }
 }
