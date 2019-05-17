@@ -15,12 +15,17 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '/home/vsts/work/1/a'
+
 - script: |
     npm install -g @angular/cli@7.0.6
     npm install
     ng build --prod && ng run demo:server:production
   displayName: 'npm install and build'
-  
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
