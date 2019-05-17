@@ -16,9 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g @angular/cli
+    npm install -g @angular/cli@7.0.6
     npm install
     ng build --prod && ng run demo:server:production
-    webpack --config webpack.server.config.js --progress --colors
-    node dist/server.js
   displayName: 'npm install and build'
