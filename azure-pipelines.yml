@@ -20,11 +20,6 @@ steps:
     npm install
     ng build --prod && ng run demo:server:production
   displayName: 'npm install and build'
-
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: '/home/vsts/work/1/a'
   
 - task: PublishBuildArtifacts@1
   inputs:
